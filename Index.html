@@ -1,0 +1,373 @@
+﻿<!--Azure Character Creation System-->
+<!--Author: Josh W. (Volund)-->
+<!--Date: 8-1-20-->
+
+<!--file includes-->
+<head>
+    <link rel="stylesheet" href="w3.css" />
+    <link rel="stylesheet" href="custom.css" />
+    <script src="custom.js"></script>
+</head>
+
+<body>
+
+    <!-- Begin Header: Contains name, rank, race, etc-->
+    <div class="headbox w3-border w3-display-container">
+
+        <!--Name-->
+        <div class="head-item w3-center">
+            <label>Character Name:</label>
+            <input type="text" id="charName" />
+        </div>
+
+        <div class="small-pad w3-center">
+            Warning: changing rank, race, or subrace will reset all stats.
+        </div>
+
+        <div class="head-item w3-display-container">
+
+            <!--Rank-->
+
+            <div class="head-item w3-display-left">
+                <label name="rank">Free Company Rank:</label>
+                <select name="rank" id="rank">
+                    <option value="null">--pick a rank--</option>
+                    <option value="Cinder">Cinder</option>
+                    <option value="Flame">Flame</option>
+                    <option value="Azure Flame">Azure Flame</option>
+                    <option value="Azure Blade">Azure Blade</option>
+                </select>
+            </div>
+
+            <!--Race-->
+            <div class="w3-display-middle">
+                <label name="race" class="head-item">Race:</label>
+                <select name="race" id="race">
+                    <option value="null">--pick a race--</option>
+                    <option value="Miqo'te">Miqo'te</option>
+                    <option value="Hyur">Hyur</option>
+                    <option value="Au Ra">Au Ra</option>
+                    <option value="Roegadyn">Roegadyn</option>
+                    <option value="Elezen">Elezen</option>
+                    <option value="Lalafell">Lalafell</option>
+                    <option value="Viera">Viera</option>
+                    <option value="Hrothgar">Hrothgar</option>
+                </select>
+            </div>
+
+            <!--Subrace-->
+            <div class="head-item w3-display-right">
+                <label name="subrace">Sub Race:</label>
+                <select name="subrace" id="subrace">
+                    <option value="null">--please pick a race first--</option>
+                </select>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--Begin Main Form-->
+    <div class="bgbox">
+
+        <div class="w3-display-container mainbox">
+
+            <!--Main Attributes-->
+            <div class="w3-display-topleft w3-card w3-padding-small subbox">
+
+                <h4 class="w3-center w3-border-bottom w3-padding-16">
+                    Main Attributes
+                </h4>
+
+                <div class="formcontainer">
+
+                    <label>Available Points:</label>
+                    <input type="number" class="points" id="main" value="0" readonly />
+
+                    <br /><br />
+
+                    <div>
+                        <label>Agility:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="agility" readonly />
+                        <button class="increment" onclick="incrementValue('agility', 'main'); updateMiscVals();">+</button>
+                        <button class="increment" onclick="decrementValue('agility', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Dexterity:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="dexterity" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('dexterity', 'main'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('dexterity', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Dodge:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="dodge" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('dodge', 'main'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('dodge', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Intelligence:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="intelligence" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('intelligence', 'main'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('intelligence', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Strength:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="strength" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('strength', 'main'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('strength', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Vitality:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="vitality" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('vitality', 'main'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('vitality', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Wisdom:</label><br />
+                        <input type="number" class="field" value="3" min="3" id="wisdom" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('wisdom', 'main'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('wisdom', 'main'); updateMiscVals();">-</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!--Secondary Attributes-->
+            <div class="w3-display-topmiddle w3-card w3-padding-small subbox-short">
+
+                <h4 class="w3-center w3-border-bottom w3-padding-16">
+                    Secondary Attributes
+                </h4>
+
+                <div class="formcontainer">
+
+                    <label>Available Points:</label>
+                    <input type="number" class="points" id="secondary" value="0" readonly />
+
+                    <br /><br />
+
+                    <div>
+                        <label>Accuracy:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="accuracy" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('accuracy', 'secondary'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('accuracy', 'secondary'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Itemization:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="itemization" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('itemization', 'secondary'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('itemization', 'secondary'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Luck:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="luck" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('luck', 'secondary'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('luck', 'secondary'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Resolve:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="resolve" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('resolve', 'secondary'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('resolve', 'secondary'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Speed:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="speed" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('speed', 'secondary'); updateMiscVals();">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('speed', 'secondary'); updateMiscVals();">-</button>
+                    </div>
+
+                    <br />
+
+                </div>
+
+            </div>
+
+            <!--Misc Stats-->
+            <div class="w3-card w3-display-bottommiddle subbox-stub w3-display-container">
+
+                <h4 class="w3-border-bottom" style="padding-left:10px; padding-bottom:10px">
+                    Misc Stats:
+                </h4>
+                
+                <div class="w3-display-left stub-item">
+                    Magic Healing:
+                    <input type="number" class="points" id="magicHealing" value="3" readonly />
+                </div>
+
+                <div class="w3-display-middle stub-item">
+                    Resolve:
+                    <input type="number" class="points" id="resolveMisc" value="20" readonly />
+                </div>
+
+                <div class="w3-display-right stub-item">
+                    Dodge:
+                    <input type="number" class="points" id="dodgeChance" value="3" readonly />
+                </div>
+
+                <div class="w3-display-bottomleft stub-item">
+                    Agi Defense:
+                    <input type="number" class="points" id="agiDef" value="1" readonly />
+                </div>
+
+                <div class="w3-display-bottommiddle stub-item">
+                    Int Defense:
+                    <input type="number" class="points" id="intDef" value="1" readonly />
+                </div>
+
+                <div class="w3-display-bottomright stub-item">
+                    Str Defense:
+                    <input type="number" class="points" id="strDef" value="1" readonly />
+                </div>
+
+            </div>
+
+            <!--Misc Attributes-->
+            <div class="w3-display-topright w3-card w3-padding-small subbox">
+
+                <h4 class="w3-center w3-padding-16 w3-border-bottom">
+                    Misc Attributes
+                </h4>
+
+                <div class="formcontainer">
+
+                    <label>Available Points:</label>
+                    <input type="number" class="points" id="misc" value="0" min="0" readonly />
+
+                    <br /><br />
+
+                    <div>
+                        <label>Athletics:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="athletics" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('athletics', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('athletics', 'misc')">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Arcana:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="arcana" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('arcana', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('arcana', 'misc')">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Charisma:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="charisma" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('charisma', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('charisma', 'misc')">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Survival:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="survival" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('survival', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('survival', 'misc')">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Mechanical:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="mechanical" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('mechanical', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('mechanical', 'misc')">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Knowledge:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="knowledge" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('knowledge', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('knowledge', 'misc')">-</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <label>Finesse:</label><br />
+                        <input type="number" class="field" value="0" min="0" id="finesse" readonly />
+                        <button class="increment w3-center" onclick="incrementValue('finesse', 'misc')">+</button>
+                        <button class="increment w3-center" onclick="decrementValue('finesse', 'misc')">-</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Submit Button-->
+        <div class="footbox w3-center w3-border w3-display-container">
+
+            <button class="w3-display-middle" onclick="writeString();">
+                Download Sheet
+            </button>
+
+        </div>
+
+    </div>
+
+</body>
+
+<!--Select listener-->
+<script>
+    document.getElementById("rank").onchange = changeListener1;
+    document.getElementById("race").onchange = changeListener2;
+    document.getElementById("subrace").onchange = changeListener3;
+
+    function changeListener1() {
+        var value = this.value;
+        setPoints(value);
+        updateMiscVals();
+    }
+
+    function changeListener2() {
+        var value = this.value;
+        setRace(value);
+        updateMiscVals();
+    }
+
+    function changeListener3() {
+        var value = this.value;
+        setRaceAttr(value);
+        updateMiscVals();
+    }
+</script>

@@ -1,0 +1,84 @@
+﻿
+.headbox {
+    margin: 0 auto;
+    width: 1200px;
+    height: 115px;
+    background-color: aliceblue;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.head-item {
+    padding: 10px;
+}
+
+.footbox {
+    width: 1200px;
+    height: 40px;
+    background-color: aliceblue;
+    margin-top: 10px;
+}
+
+.bgbox {
+    margin: 0 auto;
+    width: 1200px;
+    height: 760px;
+    background-color: aliceblue;
+}
+
+.mainbox {
+    margin: 0 auto;
+    width: 1150px;
+    height: 760px;
+    background-color: aliceblue;
+}
+
+.subbox {
+    width: 25%;
+    height: 710px;
+    margin-top: 25px;
+}
+
+.subbox-short {
+    width: 25%;
+    height: 550px;
+    margin-top: 25px;
+}
+
+.subbox-stub {
+    width: 40%;
+    height: 135px;
+    margin-bottom: 25px;
+}
+
+.stub-item {
+    padding: 10px;
+    text-align: left;
+}
+
+.formcontainer {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.field {
+    width: 50px;
+    border-radius: 100px;
+}
+
+.points {
+    width: 50px;
+    border-style: none;
+    background-color: aliceblue;
+}
+
+.increment {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    border-width: 1px;
+}
+
+.small-pad {
+    padding-bottom: 15px;
+}
